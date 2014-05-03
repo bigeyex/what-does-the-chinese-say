@@ -110,7 +110,7 @@
       }
       
       #banner{
-          background: url('/static/img/banner.png');
+          background: url('static/img/banner.png');
           height: 181px;
           text-indent: -9999px;
       }
@@ -128,9 +128,9 @@
           <div class="navbar-inner">
             <div class="container">
               <ul class="nav">
-                <li class="active"><a href="#">Search</a></li>
-                <li><a href="#">What's this?</a></li>
-                <li><a href="#">Github</a></li>
+                <li><a href="{{ url_for('index') }}">Search</a></li>
+                <li class="active"><a href="#">What's this?</a></li>
+                <li><a href="https://github.com/bigeyex/what-does-the-chinese-say">Github</a></li>
               </ul>
             </div>
           </div>
