@@ -114,13 +114,6 @@
           height: 181px;
           text-indent: -9999px;
       }
-      #preview-modal{
-            width: 700px;
-        }
-        #preview-modal .modal-body{
-            height: 500px;
-            overflow: auto;
-        }
     </style>
     <link href="{{ url_for('static', filename='css/bootstrap-responsive.min.css') }}" rel="stylesheet" media="screen">
   </head>
@@ -198,29 +191,14 @@
         </div>
       </div>
 
-    <div class="modal hide fade" id="preview-modal">
-        <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h3>Modal header</h3>
-        </div>
-        <div class="modal-body">
-            <p>One fine body…</p>
-        </div>
-        <div class="modal-footer">
-            <a href="#" class="btn">Close</a>
-            <a href="#" class="btn btn-primary">Save changes</a>
-        </div>
-    </div>
+      
 
       <div class="footer">
         <p>Wang Yu @ Center for Civic Media 2014</p>
       </div>
 
     </div> <!-- /container -->
-      
       <script src="{{ url_for('static', filename='js/jquery-1.11.1.min.js') }}"></script>
-      <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-
       <script>
           var data_type="news";
           var keyword = "";
@@ -230,9 +208,6 @@
           var page = 1;
           var json_request_uri;
           var json_base_uri = "{{ url_for('json', _external=True) }}";
-          
-          function preview(preview_url){
-          }
           
           function build_uri(){
              var request_part = "?s="+keyword+"&type="+data_type+"&page="+page;
@@ -271,7 +246,7 @@
                             $('#web-result-table').append('<tr><td>'+content_str+'</td></tr>');
                         }
                         else{   // news type
-                            content_str = '<a href="'+record.link+'" target="_blank">'+record.title+'</a> - <a href="javascript:void(0)" onclick="preview(\''+record.link+'\')">preview</a><br/>'+record.content;
+                            content_str = '<a href="'+record.link+'" target="_blank">'+record.title+'</a><br/>'+record.content;
                             $('#web-result-table').append('<tr><td>'+content_str+'</td></tr>');
                         }
                     }
